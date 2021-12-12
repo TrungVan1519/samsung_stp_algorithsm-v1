@@ -1,0 +1,40 @@
+package dominremix;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class Solution {
+	
+	static int row, col;
+	static char[][] arr;
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("dominremix")));
+			Scanner sc = new Scanner(System.in);
+			
+			int T = sc.nextInt();
+			for (int tc = 1; tc <= T; tc++) {
+				row = sc.nextInt();
+				col = sc.nextInt();
+				arr = new char[row][col];
+
+				// input
+				for (int i = 0; i < row; i++) {
+					String str = sc.next();
+					for (int j = 0; j < str.length(); j++) {
+						arr[i][j] = str.charAt(j);
+					}
+				}
+				
+				MyPath.showMatrix(arr, row, col);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

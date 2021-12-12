@@ -1,0 +1,53 @@
+package mirrorstrings;
+
+import java.io.FileInputStream;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("mirrorstrings")));
+			Scanner sc = new Scanner(System.in);
+
+			int T = sc.nextInt();
+			for (int tc = 0; tc < T; tc++) {
+				// solve
+				String str = sc.next();
+				int count = 0;
+				
+				for (int len = str.length(); len >= 1; len--) {
+					count = countSubString(str, len);
+					
+					
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static int countSubString(String str, int len) {
+		int count = 0;
+
+		for (int i = 0; i < str.length() - len; i++) {
+			if (isSymmetric(str.substring(i, len))) {
+				count++;
+			}
+		}
+		
+		return count;
+	}
+
+	static boolean isSymmetric(String s) {
+		for (int i = 0; i < s.length() / 2; i++) {
+			if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+				return false;
+			}
+		}
+		return true;
+	}
+}

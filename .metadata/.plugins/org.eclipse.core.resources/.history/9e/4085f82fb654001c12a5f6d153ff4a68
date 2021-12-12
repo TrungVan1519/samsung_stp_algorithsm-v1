@@ -1,0 +1,42 @@
+package toandflo;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("toandflo")));
+			Scanner sc = new Scanner(System.in);
+
+			int T = sc.nextInt();
+			for (int tc = 1; tc <= T; tc++) {
+				int cols = sc.nextInt();
+				String encrypted = sc.next();
+				int rows = encrypted.length() / cols;
+
+				char[][] arr = new char[rows][cols];
+
+				// input
+				for (int i = 0; i < rows; i++) {
+					for (int j = 0; j < cols; j++) {
+						if (i % 2 == 0) {
+							arr[i][j] = encrypted.charAt(i + j);
+						} else {
+							arr[i][cols - j] = encrypted.charAt(i + j);
+						}
+					}
+				}
+				
+				MyPath.showMatrix(arr, rows, cols);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

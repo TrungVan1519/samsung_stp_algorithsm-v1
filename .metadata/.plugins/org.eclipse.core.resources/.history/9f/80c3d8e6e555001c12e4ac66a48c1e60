@@ -1,0 +1,41 @@
+package mario;
+
+import java.io.FileInputStream;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class Solution {
+
+	static int T, row;
+	static int xMario, yMario;
+	static char[][] arr;
+	static char[] marioMovement;
+
+	static int[] dx = { -1, -1, -1 };
+	static int[] dy = { -1, 0, 1 };
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("mario")));
+			Scanner sc = new Scanner(System.in);
+
+			T = sc.nextInt();
+			for (int tc = 1; tc <= T; tc++) {
+				double row = sc.nextDouble();
+				arr = new char[row][5];
+
+				// input
+				for (int i = 0; i < row; i++) {
+					String str = sc.next();
+					for (int j = 0; j < str.length(); j++) {
+						arr[i][j] = str.charAt(j);
+					}
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

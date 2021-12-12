@@ -1,0 +1,50 @@
+package mirrorstrings;
+
+import java.io.FileInputStream;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class AnotherSolution {
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("mirrorstrings")));
+			Scanner sc = new Scanner(System.in);
+
+			int T = sc.nextInt();
+			for (int tc = 0; tc < T; tc++) {
+				String str = sc.next();
+				int len = 0, count = 0;
+				
+				String longest = "";
+				for (int i = 0; i < str.length(); i++) {
+					for (int j = 0; j < str.length(); j++) {
+						if (str.charAt(i) == str.charAt(j)) {
+							longest = str.substring(i, i);
+							System.out.println(longest);
+							if (check(longest)) {
+								len = longest.length();
+							}
+						}
+					}
+				}
+
+				System.out.println(len + " " + count);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	static boolean check(String s) {
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+				return false;
+			}
+		}
+		return true;
+	}
+}

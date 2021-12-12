@@ -1,0 +1,9 @@
+package learning_string;
+
+public class Main {
+
+	public static void main(String[] args) {
+		char[] ss = { '1', '2', '3' };
+		System.out.println(ss[4]);
+	}
+}

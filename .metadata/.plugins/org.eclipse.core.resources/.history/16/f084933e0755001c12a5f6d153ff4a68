@@ -1,0 +1,45 @@
+package mirrorstrings;
+
+import java.io.FileInputStream;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class AnotherSolution {
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("mirrorstrings")));
+			Scanner sc = new Scanner(System.in);
+
+			int T = sc.nextInt();
+			T = 1;
+			for (int tc = 0; tc < T; tc++) {
+				String str = sc.next();
+				
+				for (int i = 0; i < str.length(); i++) {
+					for (int j = 0; j < str.length() - 1; j++) {
+						if (str.charAt(i) == str.charAt(j) && i != j) {
+							System.out.println(str.substring(i, j+1));
+						}
+					}
+				}
+
+//				System.out.println(len + " " + count);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	static boolean isSymmetric(String s) {
+		for (int i = 0; i < s.length() / 2; i++) {
+			if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+				return false;
+			}
+		}
+		return true;
+	}
+}

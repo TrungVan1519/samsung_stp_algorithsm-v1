@@ -1,0 +1,9 @@
+package learning;
+
+public class Main {
+
+	public static void main(String[] args) {
+		char[] str = { '1', '2', '3' };
+		System.out.println(str);
+	}
+}

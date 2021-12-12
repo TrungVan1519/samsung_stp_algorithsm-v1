@@ -1,0 +1,15 @@
+package learning_string;
+
+public class Main {
+
+	public static void main(String[] args) {
+//		String str = "  mY   Na99me     i2s John1    ";
+//		String[] chars = str.strip().split(" ");
+//		for (int i = 0; i < chars.length; i++) {
+//			System.out.println(chars[i]);
+//		}
+		char[] str = { '1', '2', '3' };
+		str[2] = '\0';
+		System.out.println(str);
+	}
+}

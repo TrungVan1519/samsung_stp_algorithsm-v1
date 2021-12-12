@@ -1,0 +1,59 @@
+package toandflo;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("toandflo")));
+			Scanner sc = new Scanner(System.in);
+
+			int T = sc.nextInt();
+			for (int tc = 1; tc <= T; tc++) {
+				int cols = sc.nextInt();
+				String str = sc.next();
+				int rows = str.length() / cols;
+
+				char[][] arr = new char[rows][cols];
+
+				// input
+				int index = 0;
+//				for (int i = 0; i < rows; i++) {
+//					for (int j = 0; j < cols; j++) {
+//						arr[i][j] = str.charAt(index);
+//						if (index < str.length()) {
+//							index++;
+//						}
+//					}
+//				}
+				for (int i = 0; i < rows; i++) {
+					if (i%2==0) {
+						for (int j = 0; j < cols; j++) {
+							arr[i][j] = str.charAt(index);
+							if (index < str.length()) {
+								index++;
+							}
+						}
+					} else {
+						for (int j = cols - 1; j == 0; j--) {
+							arr[i][j] = str.charAt(index);
+							if (index < str.length()) {
+								index++;
+							}
+						}
+					}
+				}
+				MyPath.showMatrix(arr, rows, cols);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

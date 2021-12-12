@@ -1,0 +1,91 @@
+package mario;
+
+import java.io.FileInputStream;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class Solution {
+
+	static int T, row;
+	static int txMario, tyMario;
+	static char[][] arr;
+	static char[] marioMovement;
+	static boolean check;
+	static int count;
+
+	static int[] dx = { -1, -1, -1 };
+	static int[] dy = { -1, 0, 1 };
+
+	static int marioDir;
+
+	static enum DIR {
+		TOP_LEFT, TOP, TOP_RIGHT
+	}
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("mario")));
+			Scanner sc = new Scanner(System.in);
+
+			T = sc.nextInt();
+			for (int tc = 1; tc <= T; tc++) {
+				check = true;
+				count = 0;
+
+				row = sc.nextInt();
+				marioDir = DIR.TOP.ordinal();
+				arr = new char[row][5];
+				txMario = row; // mario is out of the map at this point
+				tyMario = 2;
+
+				// input
+				for (int i = 0; i < row; i++) {
+					String str = sc.next();
+					for (int j = 0; j < str.length(); j++) {
+						arr[i][j] = str.charAt(j);
+					}
+				}
+
+				String str = sc.next();
+				marioMovement = new char[str.length()];
+				for (int i = 0; i < str.length(); i++) {
+					marioMovement[i] = str.charAt(i);
+				}
+
+				// solve
+				for (int i = 0; i < marioMovement.length; i++) {
+					if (marioMovement[i] == 'C') {
+						marioDir = DIR.TOP.ordinal();
+					} else if (marioMovement[i] == 'L') {
+						marioDir = DIR.TOP_LEFT.ordinal();
+					} else if (marioMovement[i] == 'R') {
+						marioDir = DIR.TOP_RIGHT.ordinal();
+					}
+
+					txMario += dx[marioDir];
+					tyMario += dy[marioDir];
+					System.out.println(txMario + "," + tyMario);
+
+					if (arr[txMario][tyMario] == '2') {
+						check = false;
+						break;
+					}
+
+					if (arr[txMario][tyMario] == '1') {
+						count++;
+					}
+				}
+
+				if (check) {
+					System.out.println("#" + tc + " YES" + " " + count);
+				} else {
+					System.out.println("#" + tc + " NO");
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,26 @@
+package mirrorstrings;
+
+import java.io.FileInputStream;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("mirrorstrings")));
+			Scanner sc = new Scanner(System.in);
+
+			int T = sc.nextInt();
+			for (int tc = 0; tc < T; tc++) {
+				// solve
+				String str = sc.next();
+			}
+		} catch (Exception e) {
+			// lalit
+			// tilal
+			e.printStackTrace();
+		}
+	}
+}

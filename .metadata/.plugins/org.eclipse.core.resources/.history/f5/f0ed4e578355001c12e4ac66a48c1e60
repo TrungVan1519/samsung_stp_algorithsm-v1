@@ -1,0 +1,72 @@
+package quanmaduocchon;
+
+import java.io.FileInputStream;
+import java.util.Iterator;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class Solution {
+
+	static int T, size, k, m, d;
+	static char[][] arr;
+	static int[] knights, others, doNots;
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("quanmaduocchon")));
+			Scanner sc = new Scanner(System.in);
+			T = sc.nextInt();
+			for (int tc = 1; tc <= T; tc++) {
+				size = sc.nextInt();
+				arr = new char[size][size];
+
+				k = sc.nextInt();
+				knights = new int[k * 2];
+
+				m = sc.nextInt();
+				others = new int[m * 2];
+
+				d = sc.nextInt();
+				doNots = new int[d * 2];
+
+				// input
+				for (int i = 0; i < knights.length; i++) {
+					knights[i] = sc.nextInt();
+				}
+
+				for (int i = 0; i < others.length; i++) {
+					others[i] = sc.nextInt();
+				}
+
+				for (int i = 0; i < doNots.length; i++) {
+					doNots[i] = sc.nextInt();
+				}
+
+				// fill knights, others and doNots into arr
+				for (int i = 0; i < knights.length; i++) {
+					if (i % 2 == 0 && i + 1 < knights.length) {
+						arr[knights[i]][knights[i + 1]] = 'K';
+					}
+				}
+
+				for (int i = 0; i < others.length; i++) {
+					if (i % 2 == 0 && i + 1 < others.length) {
+						arr[others[i]][others[i + 1]] = 'P';
+					}
+				}
+
+				for (int i = 0; i < doNots.length; i++) {
+					if (i % 2 == 0 && i + 1 < doNots.length) {
+						arr[doNots[i]][doNots[i + 1]] = 'X';
+					}
+				}
+				
+				MyPath.showMatrix(arr, size, size);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

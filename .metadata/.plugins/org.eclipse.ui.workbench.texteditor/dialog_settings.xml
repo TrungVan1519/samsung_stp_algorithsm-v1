@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="// 0-1 -1-1 -10 -11 01 11 10 1-1"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="// 0-1 -1-1 -10 -11 01 11 10 1-1"/>
+			<item value="System.out"/>
+			<item value="&gt;="/>
+			<item value="&lt;="/>
+			<item value="arr[x + dx[3] * range][y + dy[3] * range]"/>
+			<item value="i + dx[1] * k"/>
+			<item value="&gt;= row"/>
+			<item value="&lt;= 0"/>
+			<item value="arr[i + dx[3] * k][j + dy[3] * k] = &apos;#&apos;;"/>
+			<item value="str.substring(i, i)"/>
+			<item value="length"/>
+			<item value="len_sub"/>
+			<item value="for (int k = 0; k &lt; "/>
+			<item value="for (int j = 0; j &lt; w; j++) {"/>
+			<item value="for (int i = 0; i &lt; h; i++) {"/>
+		</list>
+		<list key="replacehistory">
+			<item value="str.length()"/>
+			<item value="lenStr"/>
+			<item value="robotDir"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1004"/>
+		<item key="DIALOG_Y_ORIGIN" value="77"/>
+		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

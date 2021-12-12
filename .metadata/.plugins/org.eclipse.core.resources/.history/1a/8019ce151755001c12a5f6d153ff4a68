@@ -1,0 +1,38 @@
+package hethongvienthong;
+
+import java.io.FileInputStream;
+import java.util.Scanner;
+
+import utils.MyPath;
+
+public class Solution {
+
+	static int[] dx = { 0, -1, 0, 1 };
+	static int[] dy = { -1, 0, 1, 0 };
+
+	public static void main(String[] args) {
+		try {
+			System.setIn(new FileInputStream(MyPath.getAbsoltePath("hethongvienthong")));
+			Scanner sc = new Scanner(System.in);
+			int T = sc.nextInt();
+			for (int tc = 1; tc <= T; tc++) {
+				int row = sc.nextInt();
+				int col = sc.nextInt();
+				int[][] arr = new int[row][col];
+				
+				// input
+				for (int i = 0; i < row; i++) {
+					String str = sc.next();
+					for (int j = 0; j < str.length(); j++) {
+						arr[i][j] = str.charAt(j);
+					}
+				}
+				
+				MyPath.showMatrix(arr, col, row);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

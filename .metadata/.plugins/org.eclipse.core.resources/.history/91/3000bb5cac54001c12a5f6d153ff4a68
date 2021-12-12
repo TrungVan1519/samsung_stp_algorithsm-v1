@@ -1,0 +1,13 @@
+package learning_string;
+
+public class Main {
+
+	public static void main(String[] args) {
+		char[] ss = { '1', '2', '3' };
+		int len = 0;
+		while(ss[len] != 0) {
+			len++;
+		}
+		System.out.println(len);
+	}
+}
